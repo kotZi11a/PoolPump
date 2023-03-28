@@ -11,12 +11,12 @@ double write_double()
 	while (bool inp = 1)
 	{
 		int i;
-		vector<char> char_array;  // Вектор который будет хранить символы вводимые с клавиатуры
+		vector<char> char_array;  // Р’РµРєС‚РѕСЂ РєРѕС‚РѕСЂС‹Р№ Р±СѓРґРµС‚ С…СЂР°РЅРёС‚СЊ СЃРёРјРІРѕР»С‹ РІРІРѕРґРёРјС‹Рµ СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 		double a = 0;
-		char_array.clear();  // Очищение массива если будет введено неверное значение
-		for (i = 0; i != -1; i++)  // Цикл по вводу цифр в вектор
+		char_array.clear();  // РћС‡РёС‰РµРЅРёРµ РјР°СЃСЃРёРІР° РµСЃР»Рё Р±СѓРґРµС‚ РІРІРµРґРµРЅРѕ РЅРµРІРµСЂРЅРѕРµ Р·РЅР°С‡РµРЅРёРµ
+		for (i = 0; i != -1; i++)  // Р¦РёРєР» РїРѕ РІРІРѕРґСѓ С†РёС„СЂ РІ РІРµРєС‚РѕСЂ
 		{
-			char sim = _getch();  // Считывание символа с клавиатуры
+			char sim = _getch();  // РЎС‡РёС‚С‹РІР°РЅРёРµ СЃРёРјРІРѕР»Р° СЃ РєР»Р°РІРёР°С‚СѓСЂС‹
 			if (sim != '\r')
 			{
 				if (sim == '\b' && char_array.size() != 0)
@@ -24,10 +24,10 @@ double write_double()
 					cout << sim << ' ' << sim;
 					char_array.pop_back();
 				}
-				if (sim == '.' || sim <= '9' && sim >= '0') // Провека символа
+				if (sim == '.' || sim <= '9' && sim >= '0') // РџСЂРѕРІРµРєР° СЃРёРјРІРѕР»Р°
 				{
 					cout << sim;
-					char_array.push_back(sim); // Символ вводится в вектор
+					char_array.push_back(sim); // РЎРёРјРІРѕР» РІРІРѕРґРёС‚СЃСЏ РІ РІРµРєС‚РѕСЂ
 				}
 			}
 			else
@@ -36,24 +36,24 @@ double write_double()
 				i = -2;
 			}
 		}
-		string number(char_array.begin(), char_array.end()); // Строка принимает значения из вектора
+		string number(char_array.begin(), char_array.end()); // РЎС‚СЂРѕРєР° РїСЂРёРЅРёРјР°РµС‚ Р·РЅР°С‡РµРЅРёСЏ РёР· РІРµРєС‚РѕСЂР°
 		if (number != "0")
 		{
-			int p = number.find_first_not_of('0', 0); // Нахождение первого символа отличного от 0
+			int p = number.find_first_not_of('0', 0); // РќР°С…РѕР¶РґРµРЅРёРµ РїРµСЂРІРѕРіРѕ СЃРёРјРІРѕР»Р° РѕС‚Р»РёС‡РЅРѕРіРѕ РѕС‚ 0
 			if (p != 1)
 			{
 				number = number.erase(0, p);
 			}
 		}
-		int s = size(number);  // Переменная s принимает значение длины строки number
-		if (number == "" || number[0] == '.' || s > 9 || number[s-1] == '.') // Проверка строки
+		int s = size(number);  // РџРµСЂРµРјРµРЅРЅР°СЏ s РїСЂРёРЅРёРјР°РµС‚ Р·РЅР°С‡РµРЅРёРµ РґР»РёРЅС‹ СЃС‚СЂРѕРєРё number
+		if (number == "" || number[0] == '.' || s > 9 || number[s-1] == '.') // РџСЂРѕРІРµСЂРєР° СЃС‚СЂРѕРєРё
 		{
 			cout << "Error. Write again: ";
 			inp = 1;
 		}
 		else
 		{
-			a = stod(number); // Переменная а принимает число строки
+			a = stod(number); // РџРµСЂРµРјРµРЅРЅР°СЏ Р° РїСЂРёРЅРёРјР°РµС‚ С‡РёСЃР»Рѕ СЃС‚СЂРѕРєРё
 			inp = 0;
 			return a;
 		}
@@ -96,7 +96,7 @@ int main()
 		double fin_time = 1 / speed;
 		cout << fin_time << endl << "Continue? (Y/N) ";
 		char end = 0;
-		while (end != 'y' && end != 'n' && end != 'Y' && end != 'N') // энтер
+		while (end != 'y' && end != 'n' && end != 'Y' && end != 'N') // СЌРЅС‚РµСЂ
 		{
 			end = _getch();
 		}
